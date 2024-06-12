@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Ticket</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Booking Details</h2>
+        <p>Name: <span id="ticket-name"></span></p>
+        <p>Email: <span id="ticket-email"></span></p>
+        <p>Phone: <span id="ticket-phone"></span></p>
+        <p>Package: <span id="ticket-package"></span></p>
+    </main>
+    <footer>
+        <p>&copy; 2024 West Bengal Tourism. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Assuming form data is passed via URL parameters for simplicity
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('ticket-name').textContent = urlParams.get('name');
+        document.getElementById('ticket-email').textContent = urlParams.get('email');
+        document.getElementById('ticket-phone').textContent = urlParams.get('phone');
+        document.getElementById('ticket-package').textContent = urlParams.get('package');
+    </script>
+</body>
+</html>

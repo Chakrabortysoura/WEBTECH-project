@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="ticket.html" method="post" id="booking-form">
+            <h2>Book Your Package</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="package">Choose Package:</label>
+            <select id="package" name="package">
+                <option value="cultural">Cultural Spots</option>
+                <option value="beach">Beach Spots</option>
+                <option value="adventurous">Adventurous Spots</option>
+                <option value="wildlife">Wildlife Spots</option>
+                <option value="medical">Medical Places</option>
+            </select>
+            <br><br>
+            <button type="submit">Book Now</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 West Bengal Tourism. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

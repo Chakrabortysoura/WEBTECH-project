@@ -3,66 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Sign Up</title>
+    <title>Login - West Bengal Tourism</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            section {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="form-container">
-            <div class="form-header">
-                <h2>Login</h2>
-            </div>
-            <form id="loginForm">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" name="email" required>
-                
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="password" required>
-                
-                <button type="submit">Login</button>
-                
-                <p class="toggle-form">Don't have an account? <a href="#" id="showSignUp">Sign Up</a></p>
-            </form>
+    <header>
+        <div class="header-content">
+            <h1>LOGIN - SIGNUP - West Bengal Tourism</h1>
         </div>
-
-        <div class="form-container" id="signUpContainer" style="display:none;">
-            <div class="form-header">
-                <h2>Sign Up</h2>
-            </div>
-            <form id="signUpForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="signUpEmail">Email:</label>
-                <input type="email" id="signUpEmail" name="email" required>
-
-                <label for="signUpPassword">Password:</label>
-                <input type="password" id="signUpPassword" name="password" required>
-
-                <label for="contact">Contact Number:</label>
-                <input type="text" id="contact" name="contact" required>
-
-                <button type="submit">Sign Up</button>
-                
-                <p class="toggle-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Tour Packages</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            Cultural Spots
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            Beach Spots
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            Adventurous Spots
+                            <div class="sub-dropdown-content">
+                                <a href="Adventures1.html">Bankura</a>
+                                <a href="Adventures2.html">Sandakphu Trek</a>
+                                <a href="Adventures3.html">Teesta River Rafting</a>
+                                <a href="Adventures4.html">safaris</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="wildlife.html">Wildlife Spots</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="medical.html">Medical Places</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="login.html" id="loginLink">Login</a></li>
+                <li id="loggedInUser" style="display: none;"><a href="#">Welcome, <span id="username"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="login">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginUserId">User ID:</label>
+                <input type="text" id="loginUserId" required>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit">Login</button><br><br>
+                <button type="button" id="signupBtn">Sign up</button>
             </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 West Bengal Tourism. All Rights Reserved.</p>
+    </footer>
+    <div class="popup" id="signupPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <section id="signup">
+                <h2>Signup</h2>
+                <form id="signupForm">
+                    <label for="signupName">Name:</label>
+                    <input type="text" id="signupName" required>
+                    <label for="signupAddress">Address:</label>
+                    <input type="text" id="signupAddress" required>
+                    <label for="signupPhone">Phone Number:</label>
+                    <input type="text" id="signupPhone" required>
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" required>
+                    <label for="signupPassword">New Password:</label>
+                    <input type="password" id="signupPassword" required>
+                    <label for="confirmPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmPassword" required>
+                    <button type="submit">Signup</button>
+                </form>
+            </section>
         </div>
     </div>
 
     <script>
-        const showSignUp = document.getElementById('showSignUp');
-        const showLogin = document.getElementById('showLogin');
+        const signupBtn = document.getElementById('signupBtn');
+        const signupPopup = document.getElementById('signupPopup');
         const loginForm = document.getElementById('loginForm');
-        const signUpContainer = document.getElementById('signUpContainer');
-        
-        showSignUp.addEventListener('click', () => {
-            loginForm.parentElement.style.display = 'none';
-            signUpContainer.style.display = 'block';
+
+        signupBtn.addEventListener('click', () => {
+            signupPopup.style.display = 'block';
         });
 
-        showLogin.addEventListener('click', () => {
-            signUpContainer.style.display = 'none';
-            loginForm.parentElement.style.display = 'block';
+        function closePopup() {
+            signupPopup.style.display = 'none';
+        }
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // Simulate successful login process
+            alert('Login Successful');
+            window.location.href = 'index.html';
         });
     </script>
 </body>

@@ -3,43 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Booking - West Bengal Tourism</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #0c4197d3;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .header-content h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(2, 5, 95, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="date"], select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0cf18e;
+        }
+
+        footer {
+            background-color: #394cdb;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #9be1e8;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #b0edf4;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            section {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Booking</h1>
+        <div class="header-content">
+            <h1>Book Your Tour</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Tour Packages</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            Cultural Spots
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                                
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            Beach Spots
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                                
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            Adventurous Spots
+                            <div class="sub-dropdown-content">
+                                <a href="Adventures1.html">Bankura</a>
+                                <a href="Adventures2.html">Sandakphu Trek</a>
+                                <a href="Adventures3.html">Teesta River Rafting</a>
+                                <a href="Adventures4.html">safaris</a>
+                            
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="wildlife.html">Wildlife Spots</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                                
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="medical.html">Medical Places</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Place 1</a>
+                                <a href="#">Place 2</a>
+                                <a href="#">Place 3</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="booking.html">Booking</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html" id="loginLink">Login</a></li>
+                <li id="loggedInUser" style="display: none;"><a href="#">Welcome, <span id="username"></span></a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="ticket.html" method="post" id="booking-form">
-            <h2>Book Your Package</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-            <label for="package">Choose Package:</label>
-            <select id="package" name="package">
-                <option value="cultural">Cultural Spots</option>
-                <option value="beach">Beach Spots</option>
-                <option value="adventurous">Adventurous Spots</option>
-                <option value="wildlife">Wildlife Spots</option>
-                <option value="medical">Medical Places</option>
-            </select>
-            <br><br>
-            <button type="submit">Book Now</button>
-        </form>
+        <section id="booking-form">
+            <h2>Booking Form</h2>
+            <form id="bookingForm" onsubmit="return submitForm()" action="ticket.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="tour-type">Tour Type:</label>
+                <select id="tour-type" name="tour-type" required>
+                    <option value="normal">Normal</option>
+                    <option value="deluxe">Deluxe</option>
+                    <option value="super-deluxe">Super Deluxe</option>
+                </select>
+                <label for="num-adults">Number of Adults:</label>
+                <input type="number" id="num-adults" name="num-adults" min="1" required>
+                <label for="num-children">Number of Children:</label>
+                <input type="number" id="num-children" name="num-children" min="0" required>
+                <label for="tour-package">Tour Package:</label>
+                <select id="tour-package" name="tour-package" required>
+                    <option value="cultural">Cultural Spots</option>
+                    <option value="beach">Beach Spots</option>
+                    <option value="adventurous">Adventurous Spots</option>
+                    <option value="wildlife">Wildlife Spots</option>
+                    <option value="medical">Medical Places</option>
+                </select>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
     </main>
+    <table id="package-details">
+        <caption><h3>Package Details</h3></caption>
+        <thead>
+            <tr>
+                <th>Package Type</th>
+                <th>Spots Covered</th>
+                <th>Price (INR)</th>
+                <th>Child Discount (%)</th>
+                <th>Duration (Days)</th>
+                <th>Places to be covered</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cultural Spots -->
+            <tr>
+                <td rowspan="3">Cultural Spots</td>
+                <td>Normal</td>
+                <td>5000</td>
+                <td>20%</td>
+                <td rowspan="3">3</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>Deluxe</td>
+                <td>8000</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Super Deluxe</td>
+                <td>12000</td>
+                <td>10%</td>
+            </tr>
+        
+            <!-- Beach Spots -->
+            <tr>
+                <td rowspan="3">Beach Spots</td>
+                <td>Normal</td>
+                <td>6000</td>
+                <td>20%</td>
+                <td rowspan="3">5</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>Deluxe</td>
+                <td>9000</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Super Deluxe</td>
+                <td>13000</td>
+                <td>10%</td>
+            </tr>
+        
+            <!-- Adventurous Spots -->
+            <tr>
+                <td rowspan="3">Adventurous Spots</td>
+                <td>Normal</td>
+                <td>7000</td>
+                <td>20%</td>
+                <td rowspan="3">4</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>Deluxe</td>
+                <td>10000</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Super Deluxe</td>
+                <td>14000</td>
+                <td>10%</td>
+            </tr>
+        
+            <!-- Wildlife Spots -->
+            <tr>
+                <td rowspan="3">Wildlife Spots</td>
+                <td>Normal</td>
+                <td>5500</td>
+                <td>20%</td>
+                <td rowspan="3">6</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>Deluxe</td>
+                <td>8500</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Super Deluxe</td>
+                <td>12500</td>
+                <td>10%</td>
+            </tr>
+        
+            <!-- Medical Places -->
+            <tr>
+                <td rowspan="3">Medical Places</td>
+                <td>Normal</td>
+                <td>4800</td>
+                <td>20%</td>
+                <td rowspan="3">2</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>Deluxe</td>
+                <td>7500</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Super Deluxe</td>
+                <td>11000</td>
+                <td>10%</td>
+            </tr>
+        </tbody>
+
     <footer>
         <p>&copy; 2024 West Bengal Tourism. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function submitForm() {
+            // Retrieve form data
+            let formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                tourType: document.getElementById('tour-type').value,
+                numAdults: document.getElementById('num-adults').value,
+                numChildren: document.getElementById('num-children').value,
+                tourPackage: document.getElementById('tour-package').value,
+                startDate: document.getElementById('start-date').value
+            };
+
+            // Store form data in sessionStorage
+            sessionStorage.setItem('bookingData', JSON.stringify(formData));
+
+            // Redirect to ticket.html
+            return true;
+        }
+    </script>
 </body>
 </html>

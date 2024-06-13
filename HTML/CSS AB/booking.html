@@ -333,13 +333,26 @@
                 tourPackage: document.getElementById('tour-package').value,
                 startDate: document.getElementById('start-date').value
             };
-
-            // Store form data in sessionStorage
-            sessionStorage.setItem('bookingData', JSON.stringify(formData));
-
-            // Redirect to ticket.html
-            return true;
+    
+            // Display booking details in a prompt or alert
+            let message = `Booking Details:\n\n`;
+            message += `Name: ${formData.name}\n`;
+            message += `Email: ${formData.email}\n`;
+            message += `Tour Type: ${formData.tourType}\n`;
+            message += `Number of Adults: ${formData.numAdults}\n`;
+            message += `Number of Children: ${formData.numChildren}\n`;
+            message += `Tour Package: ${formData.tourPackage}\n`;
+            message += `Start Date: ${formData.startDate}\n`;
+    
+            alert(message);
+    
+            // Redirect to home page
+            window.location.href = "index.html";
+    
+            // Prevent form submission (optional)
+            return false;
         }
     </script>
+    
 </body>
 </html>

@@ -100,11 +100,14 @@ nav ul li a:hover {
 #intro {
     padding: 40px 20px;
     text-align: center;
-    background-color: #2222c5;
+    background-color: #05a1c0;
     color: #fff;
     border-bottom: 1px solid #ffffff;
 }
-
+a{
+    text-decoration: none;
+    color: rgb(10, 40, 211);
+}
 #intro img {
     max-width: 100%;
     height: auto;

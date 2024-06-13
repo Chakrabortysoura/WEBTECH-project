@@ -5,91 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>West Bengal Tourism</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            background: url('images_AB/banner.jpg') center center/cover no-repeat; /* Background image properties */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background: #575757;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: rgb(197, 25, 25);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+        }
+
+        .sub-dropdown:hover .sub-dropdown-content {
+            display: block;
+        }
+
+        /* New CSS for the remaining two dropdowns */
+        .dropdown:nth-child(4) .dropdown-content,
+        .dropdown:nth-child(5) .dropdown-content {
+            background-color: lightgrey; /* Change to your desired color */
+        }
+
+        .dropdown:nth-child(4) .dropdown-content a,
+        .dropdown:nth-child(5) .dropdown-content a {
+            color: black;
+        }
+
+        .dropdown:nth-child(4) .dropdown-content a:hover,
+        .dropdown:nth-child(5) .dropdown-content a:hover {
+            background-color: darkgrey; /* Change to your desired hover color */
+        }
+    </style>
 </head>
-<style>
-header {
-    background: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    position: relative;
-}
-
-nav ul li a {
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: block;
-}
-
-nav ul li a:hover {
-    background: #575757;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: rgb(197, 25, 25);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.sub-dropdown-content {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-}
-
-.sub-dropdown:hover .sub-dropdown-content {
-    display: block;
-}
-
-/* New CSS for the remaining two dropdowns */
-.dropdown:nth-child(4) .dropdown-content,
-.dropdown:nth-child(5) .dropdown-content {
-    background-color: lightgrey; /* Change to your desired color */
-}
-
-.dropdown:nth-child(4) .dropdown-content a,
-.dropdown:nth-child(5) .dropdown-content a {
-    color: black;
-}
-
-.dropdown:nth-child(4) .dropdown-content a:hover,
-.dropdown:nth-child(5) .dropdown-content a:hover {
-    background-color: darkgrey; /* Change to your desired hover color */
-}
-</style>
 <body>
     <header>
         <div class="header-content">
-            <img src="images_AB/banner.jpg" alt="Explore the Beauty of West Bengal" style="width: 100%; height: auto;">
+            <!-- Remove the <img> tag -->
+            <h1>Explore the Beauty of West Bengal</h1>
+            <p>Discover the cultural, adventurous, and natural wonders of West Bengal.</p>
         </div>
         <nav>
             <ul>

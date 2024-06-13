@@ -328,13 +328,43 @@
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 tourType: document.getElementById('tour-type').value,
-                numAdults: document.getElementById('num-adults').value,
-                numChildren: document.getElementById('num-children').value,
+                numAdults: parseInt(document.getElementById('num-adults').value),
+                numChildren: parseInt(document.getElementById('num-children').value),
                 tourPackage: document.getElementById('tour-package').value,
                 startDate: document.getElementById('start-date').value
             };
     
-            // Display booking details in a prompt or alert
+            // Calculate total price based on tour type and number of persons
+            let pricePerAdult, pricePerChild;
+            switch (formData.tourPackage) {
+                case 'cultural':
+                    pricePerAdult = 5000;
+                    pricePerChild = 0.8 * pricePerAdult; // Child discount 20%
+                    break;
+                case 'beach':
+                    pricePerAdult = 6000;
+                    pricePerChild = 0.8 * pricePerAdult; // Child discount 20%
+                    break;
+                case 'adventurous':
+                    pricePerAdult = 7000;
+                    pricePerChild = 0.8 * pricePerAdult; // Child discount 20%
+                    break;
+                case 'wildlife':
+                    pricePerAdult = 5500;
+                    pricePerChild = 0.8 * pricePerAdult; // Child discount 20%
+                    break;
+                case 'medical':
+                    pricePerAdult = 4800;
+                    pricePerChild = 0.8 * pricePerAdult; // Child discount 20%
+                    break;
+                default:
+                    pricePerAdult = 0;
+                    pricePerChild = 0;
+            }
+    
+            let totalPrice = (formData.numAdults * pricePerAdult) + (formData.numChildren * pricePerChild);
+    
+            // Display booking details and total price in a prompt or alert
             let message = `Booking Details:\n\n`;
             message += `Name: ${formData.name}\n`;
             message += `Email: ${formData.email}\n`;
@@ -342,7 +372,8 @@
             message += `Number of Adults: ${formData.numAdults}\n`;
             message += `Number of Children: ${formData.numChildren}\n`;
             message += `Tour Package: ${formData.tourPackage}\n`;
-            message += `Start Date: ${formData.startDate}\n`;
+            message += `Start Date: ${formData.startDate}\n\n`;
+            message += `Total Price: INR ${totalPrice}`;
     
             alert(message);
     
@@ -353,6 +384,7 @@
             return false;
         }
     </script>
+    
     
 </body>
 </html>
